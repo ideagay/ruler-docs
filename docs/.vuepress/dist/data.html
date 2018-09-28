@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Data | ruler docs</title>
+    <meta name="description" content="ruler 平台帮助文档">
+    
+    
+    <link rel="preload" href="/assets/css/styles.c544dd0a.css" as="style"><link rel="preload" href="/assets/js/app.c544dd0a.js" as="script"><link rel="preload" href="/assets/js/7.36981f90.js" as="script"><link rel="prefetch" href="/assets/js/5.211a2784.js"><link rel="prefetch" href="/assets/css/1.styles.5a8ea794.css"><link rel="prefetch" href="/assets/js/1.5a8ea794.js"><link rel="prefetch" href="/assets/css/2.styles.3b2bf0fa.css"><link rel="prefetch" href="/assets/js/2.3b2bf0fa.js"><link rel="prefetch" href="/assets/js/3.b328447d.js"><link rel="prefetch" href="/assets/js/4.895e8e0c.js"><link rel="prefetch" href="/assets/js/6.51ba5ec7.js"><link rel="prefetch" href="/assets/js/8.711d9d9b.js"><link rel="prefetch" href="/assets/js/9.d00e7089.js"><link rel="prefetch" href="/assets/js/10.66611ea4.js"><link rel="prefetch" href="/assets/js/11.83d91db3.js"><link rel="prefetch" href="/assets/js/12.cf502b43.js"><link rel="prefetch" href="/assets/js/13.edca0639.js"><link rel="prefetch" href="/assets/js/14.36b2b18d.js">
+    <link rel="stylesheet" href="/assets/css/1.styles.5a8ea794.css"><link rel="stylesheet" href="/assets/css/2.styles.3b2bf0fa.css"><link rel="stylesheet" href="/assets/css/styles.c544dd0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ruler docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/changelog.html" class="sidebar-link">更新日志</a></li><li><a href="/" class="sidebar-link">快速上手</a></li><li><a href="/user.html" class="sidebar-link">User</a></li><li><a href="/usertag.html" class="sidebar-link">UserTag</a></li><li><a href="/app.html" class="sidebar-link">App</a></li><li><a href="/collection.html" class="sidebar-link">Collection</a></li><li><a href="/jenkins.html" class="sidebar-link">Jenkins</a></li><li><a href="/gitlab.html" class="sidebar-link">Gitlab</a></li><li><a href="/file.html" class="sidebar-link">File</a></li><li><a href="/dingding.html" class="sidebar-link">DingDing</a></li><li><a href="/data.html" class="active sidebar-link">Data</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/data.html#search" class="sidebar-link">search</a></li><li class="sidebar-sub-header"><a href="/data.html#aggregatequery" class="sidebar-link">aggregateQuery</a></li><li class="sidebar-sub-header"><a href="/data.html#insert" class="sidebar-link">insert</a></li><li class="sidebar-sub-header"><a href="/data.html#update" class="sidebar-link">update</a></li><li class="sidebar-sub-header"><a href="/data.html#insertandupdate" class="sidebar-link">insertAndUpdate</a></li><li class="sidebar-sub-header"><a href="/data.html#delete" class="sidebar-link">delete</a></li></ul></li><li><a href="/role.html" class="sidebar-link">Role</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="data"><a href="#data" aria-hidden="true" class="header-anchor">#</a> Data</h1> <pre><code>import {Data} from '@souche-f2e/ruler-tool';
+
+accessKey 是你操作其他应用数据时所必需的参数,如果是自己应用的数据,则不用传
+</code></pre> <h2 id="search"><a href="#search" aria-hidden="true" class="header-anchor">#</a> search</h2> <h3 id="入参"><a href="#入参" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    * name &lt;&lt;String&gt;&gt; 表名
+    limit &lt;&lt;Object&gt;&gt; 分页数据 默认{page: 1, pageSize: 20} 
+    condition &lt;&lt;Object&gt;&gt; 查询条件 默认 {}
+    accessKey &lt;&lt;String&gt;&gt; 权限key值
+}
+</code></pre> <h3 id="出参"><a href="#出参" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    totalPage
+    currentPage
+    totalNumber
+    perPageNumber
+    data :     [{
+                   _id
+                   name
+                   desc
+                   type
+                   protected
+                   index
+                   defaultValue
+                   updated
+                   created
+               }]
+}
+</code></pre> <h3 id="用法"><a href="#用法" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <blockquote><p>mongodb的操作符都以<code>$</code>来标记</p></blockquote> <ul><li>基础用法</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>let params = {
+    limit: {page: 1, pageSize: 20},
+    name: 'apps',
+    condition: {'name': 'tangeche'},
+    accessKey: 'xxxx'
+}
+Data.search(params).then((res) =&gt; {
+    console.log(res);
+});
+
+运算符
+- $nor
+- $gt
+- $gte
+- $lt
+- $lte
+- $ne
+- $in
+- $nin
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><ul><li>模糊查询($regex)</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>condition: {'name': {$regex: 'test'}} //可以是某个字符串模糊匹配， 也可以是一个正则表达式
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>复合查询(and | or)</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>condition: [{name: '张三'}, {age: '18'}] //default is $and 相当于{$and: [xxx, xxx, ...]}
+condition: {$or: [{name: '张三'}, {age: '18'}]}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="aggregatequery"><a href="#aggregatequery" aria-hidden="true" class="header-anchor">#</a> aggregateQuery</h2> <h3 id="入参-2"><a href="#入参-2" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    * name &lt;&lt;String&gt;&gt; 表名
+    limit &lt;&lt;Object&gt;&gt; 分页数据 默认{page: 1, pageSize: 20} 
+    condition &lt;&lt;Object&gt;&gt; 查询条件 默认 {}
+    accessKey &lt;&lt;String&gt;&gt; 权限key值
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="出参-2"><a href="#出参-2" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    totalPage
+    currentPage
+    totalNumber
+    perPageNumber
+    data: [{
+        _id
+        name
+        desc
+        type
+        protected
+        index
+        defaultValue
+        updated
+        created
+    }]
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="用法-2"><a href="#用法-2" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <ul><li>基础用法</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>let params = {
+    limit: {page: 1, pageSize: 20},
+    name: 'apps',
+    condition: {
+        $unwind: '$fields'
+    },{
+        $match: {'fields.name': 'userId'}
+    },
+    accessKey: 'xxxx'
+}
+Data.aggregateQuery()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><ul><li><p>多级嵌套查询($unwind)</p> <blockquote><p>当一个对象有一个属性是Oject类型的数组的时候， 可以使用$unwind对数组字段进行拆分，然后再使用$match进行查询</p></blockquote></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>例：
+{
+    {
+        fields: [{
+            name: 'userId'
+        }, {
+            name: 'roleId'
+        }, {
+            name: 'roleCode'
+        }, {
+            name: 'roleName'
+        }]
+   }, 
+   {
+       fields: [{
+           name: 'appName'
+       }, {
+           name: 'version'
+       }, {
+           name: 'createDate'
+       }, {
+           name: 'updateDate'
+       }]
+   },...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>condition: {
+    $unwind: '$fields'
+},{
+    $match: {'fields.name': 'userId'}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ul><li>聚合查询($lookup)</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>condition: [{
+    $lookup: {
+        from: 'test-blogs',//lowerCase`${appName}-${name}s`  这里appName是Test
+        localField: 'userid',
+        foreignField: 'uid',
+        as: 'blogs'
+    }
+}, {
+    $match: {
+        name: '用户3'
+    }
+}]
+
+from // 要关联的表 由于动态创建的表名是以Collection表里appName-names生成的
+localField // 主键
+foreignField // 外键
+as //  对应的外键集合的数据，default &quot;inventory_docs&quot; 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="insert"><a href="#insert" aria-hidden="true" class="header-anchor">#</a> insert</h2> <h3 id="入参-3"><a href="#入参-3" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    * name &lt;&lt;String&gt;&gt; 表名
+    data  &lt;&lt;Object|Array(Object)&gt;&gt; 插入数据,必须是你在表结构中定义好的字段
+    accessKey &lt;&lt;String&gt;&gt; 权限key值
+}
+</code></pre> <h3 id="出参-3"><a href="#出参-3" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>[{
+    _id
+    name
+    desc
+    type
+    protected
+    index
+    defaultValue
+    updated
+    created
+}]
+</code></pre> <h3 id="用法-3"><a href="#用法-3" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>let params = {
+    name: 'apps',
+    data: {'name': 'tangeche'},
+    accessKey: 'xxxx'
+}
+Data.insert(params).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="update"><a href="#update" aria-hidden="true" class="header-anchor">#</a> update</h2> <h3 id="入参-4"><a href="#入参-4" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    * name &lt;&lt;String&gt;&gt; 表名
+    * data  &lt;&lt;Object|Array(Object)&gt;&gt; 更新数据,必须是你在表结构中定义好的字段
+    * ids  &lt;&lt;Array(String)&gt;&gt; 记录的_id 如果传了ids,则会忽略condition,
+    * condition &lt;&lt;Object&gt;&gt; 查询条件 默认 {} 有ids时可不传
+    accessKey &lt;&lt;String&gt;&gt; 权限key值
+}
+</code></pre> <h3 id="出参-4"><a href="#出参-4" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    desc
+    type
+    protected
+    index
+    defaultValue
+    updated
+    created
+}
+</code></pre> <h3 id="用法-4"><a href="#用法-4" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>let params = {
+    name: 'apps',
+    data: {'name': 'tangeche'},
+    ids: ['1', '2'],
+    condition: {'age': 20},
+    accessKey: 'xxxx'
+}
+Data.update(params).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="insertandupdate"><a href="#insertandupdate" aria-hidden="true" class="header-anchor">#</a> insertAndUpdate</h2> <h3 id="入参-5"><a href="#入参-5" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    * name &lt;&lt;String&gt;&gt; 表名
+    * data  &lt;&lt;Object|Array(Object)&gt;&gt; 更新数据,必须是你在表结构中定义好的字段
+    accessKey &lt;&lt;String&gt;&gt; 权限key值
+}
+</code></pre> <h3 id="出参-5"><a href="#出参-5" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>[{
+    _id
+    name
+    desc
+    type
+    protected
+    index
+    defaultValue
+    updated
+    created
+}]
+</code></pre> <h3 id="用法-5"><a href="#用法-5" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>let params = {
+    name: 'apps',
+    data: {'name': 'tangeche'},
+    accessKey: 'xxxx'
+}
+Data.insertAndUpdate(params).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="delete"><a href="#delete" aria-hidden="true" class="header-anchor">#</a> delete</h2> <h3 id="入参-6"><a href="#入参-6" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    * name &lt;&lt;String&gt;&gt; 表名
+    * ids  &lt;&lt;Array(String)&gt;&gt; 记录的_id 如果传了ids,则会忽略condition,
+    * condition &lt;&lt;Object&gt;&gt; 查询条件 默认 {} 有ids时可不传
+    accessKey &lt;&lt;String&gt;&gt; 权限key值
+}
+</code></pre> <h3 id="出参-6"><a href="#出参-6" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    desc
+    type
+    protected
+    index
+    defaultValue
+    updated
+    created
+}
+</code></pre> <h3 id="用法-6"><a href="#用法-6" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>let params = {
+    name: 'apps',
+    ids: ['1', '2'],
+    condition: {'name': 'tangeche'},
+    accessKey: 'xxxx'
+}
+
+Data.delete(params).then(res =&gt; {
+    console.log(res);
+});
+</code></pre></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/dingding.html" class="prev">
+          DingDing
+        </a></span> <span class="next"><a href="/role.html">
+          Role
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/7.36981f90.js" defer></script><script src="/assets/js/app.c544dd0a.js" defer></script>
+  </body>
+</html>

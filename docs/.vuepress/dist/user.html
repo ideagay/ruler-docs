@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>User | ruler docs</title>
+    <meta name="description" content="ruler 平台帮助文档">
+    
+    
+    <link rel="preload" href="/assets/css/styles.c544dd0a.css" as="style"><link rel="preload" href="/assets/js/app.c544dd0a.js" as="script"><link rel="preload" href="/assets/js/13.edca0639.js" as="script"><link rel="prefetch" href="/assets/js/5.211a2784.js"><link rel="prefetch" href="/assets/css/1.styles.5a8ea794.css"><link rel="prefetch" href="/assets/js/1.5a8ea794.js"><link rel="prefetch" href="/assets/css/2.styles.3b2bf0fa.css"><link rel="prefetch" href="/assets/js/2.3b2bf0fa.js"><link rel="prefetch" href="/assets/js/3.b328447d.js"><link rel="prefetch" href="/assets/js/4.895e8e0c.js"><link rel="prefetch" href="/assets/js/6.51ba5ec7.js"><link rel="prefetch" href="/assets/js/7.36981f90.js"><link rel="prefetch" href="/assets/js/8.711d9d9b.js"><link rel="prefetch" href="/assets/js/9.d00e7089.js"><link rel="prefetch" href="/assets/js/10.66611ea4.js"><link rel="prefetch" href="/assets/js/11.83d91db3.js"><link rel="prefetch" href="/assets/js/12.cf502b43.js"><link rel="prefetch" href="/assets/js/14.36b2b18d.js">
+    <link rel="stylesheet" href="/assets/css/1.styles.5a8ea794.css"><link rel="stylesheet" href="/assets/css/2.styles.3b2bf0fa.css"><link rel="stylesheet" href="/assets/css/styles.c544dd0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ruler docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/changelog.html" class="sidebar-link">更新日志</a></li><li><a href="/" class="sidebar-link">快速上手</a></li><li><a href="/user.html" class="active sidebar-link">User</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/user.html#fetchcurrentrole" class="sidebar-link">fetchCurrentRole</a></li><li class="sidebar-sub-header"><a href="/user.html#fetchall" class="sidebar-link">fetchAll</a></li><li class="sidebar-sub-header"><a href="/user.html#fetchbyid" class="sidebar-link">fetchById</a></li><li class="sidebar-sub-header"><a href="/user.html#update" class="sidebar-link">update</a></li><li class="sidebar-sub-header"><a href="/user.html#updatepermission" class="sidebar-link">updatePermission</a></li><li class="sidebar-sub-header"><a href="/user.html#search" class="sidebar-link">search</a></li><li class="sidebar-sub-header"><a href="/user.html#deleteuser" class="sidebar-link">deleteUser</a></li><li class="sidebar-sub-header"><a href="/user.html#fetchuserbytoken" class="sidebar-link">fetchUserByToken</a></li></ul></li><li><a href="/usertag.html" class="sidebar-link">UserTag</a></li><li><a href="/app.html" class="sidebar-link">App</a></li><li><a href="/collection.html" class="sidebar-link">Collection</a></li><li><a href="/jenkins.html" class="sidebar-link">Jenkins</a></li><li><a href="/gitlab.html" class="sidebar-link">Gitlab</a></li><li><a href="/file.html" class="sidebar-link">File</a></li><li><a href="/dingding.html" class="sidebar-link">DingDing</a></li><li><a href="/data.html" class="sidebar-link">Data</a></li><li><a href="/role.html" class="sidebar-link">Role</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="user"><a href="#user" aria-hidden="true" class="header-anchor">#</a> User</h1> <pre><code>import {User} from '@souche-f2e/ruler-tool';
+</code></pre> <h2 id="fetchcurrentrole"><a href="#fetchcurrentrole" aria-hidden="true" class="header-anchor">#</a> fetchCurrentRole</h2> <h3 id="入参"><a href="#入参" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>     appId: String
+     needAppRole: Boolean
+</code></pre> <h3 id="出参"><a href="#出参" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    roleCode
+    roleName
+    appKey
+    appKey
+    appRoles {
+      roleCode
+      roleName
+      mobileAppId
+      mobileAppName
+    }
+}
+</code></pre> <h3 id="用法"><a href="#用法" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>User.fetchCurrentRole('1', true).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="fetchall"><a href="#fetchall" aria-hidden="true" class="header-anchor">#</a> fetchAll</h2> <h3 id="入参-2"><a href="#入参-2" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    page: Number
+    number: Number
+    keyword: String
+    appId: String
+}
+</code></pre> <h3 id="出参-2"><a href="#出参-2" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    totalPage
+    currentPage
+    totalNumber
+    perPageNumber
+    data {
+        _id
+        name
+        nickname
+        gitlab
+        enable
+        created
+        updated
+        roleCode
+        roleName
+        otherRoles {
+          roleCode
+          roleName
+          appId
+        }
+        appRoles {
+          roleCode
+          roleName
+          mobileAppId
+          mobileAppName
+        }
+        tags
+    }
+}
+</code></pre> <h3 id="用法-2"><a href="#用法-2" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>User.fetchAll().then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="fetchbyid"><a href="#fetchbyid" aria-hidden="true" class="header-anchor">#</a> fetchById</h2> <h3 id="入参-3"><a href="#入参-3" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id: String
+}
+</code></pre> <h3 id="出参-3"><a href="#出参-3" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    nickname
+    gitlab
+    enable
+    created
+    updated
+    roleCode
+    roleName
+    otherRoles {
+        roleCode
+        roleName
+        appId
+    }
+}
+</code></pre> <h3 id="用法-3"><a href="#用法-3" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>User.fetchById(_id).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="update"><a href="#update" aria-hidden="true" class="header-anchor">#</a> update</h2> <h3 id="入参-4"><a href="#入参-4" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id: String
+    nickname: String
+    enable: Boolean
+}
+</code></pre> <h3 id="出参-4"><a href="#出参-4" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    nickname
+    gitlab
+    enable
+    created
+    updated
+}
+</code></pre> <h3 id="用法-4"><a href="#用法-4" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>User.update(_id, nickname, enable).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="updatepermission"><a href="#updatepermission" aria-hidden="true" class="header-anchor">#</a> updatePermission</h2> <h3 id="入参-5"><a href="#入参-5" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    userId: String
+    roleId: String
+    appId: String
+}
+</code></pre> <h3 id="出参-5"><a href="#出参-5" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    roleCode
+    roleName
+}
+</code></pre> <h3 id="用法-5"><a href="#用法-5" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>User.updatePermission(userId, roleId, appId).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="search"><a href="#search" aria-hidden="true" class="header-anchor">#</a> search</h2> <h3 id="入参-6"><a href="#入参-6" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    page: Number
+    number: Number
+    keyword: String
+}
+</code></pre> <h3 id="出参-6"><a href="#出参-6" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    totalPage
+    currentPage
+    totalNumber
+    perPageNumber
+    data {
+        _id
+        name
+        nickname
+        gitlab
+        enable
+        created
+        updated
+        roleCode
+        roleName
+        otherRoles {
+          roleCode
+          roleName
+          appId
+        }
+    }
+}
+</code></pre> <h3 id="用法-6"><a href="#用法-6" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>User.search(args).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="deleteuser"><a href="#deleteuser" aria-hidden="true" class="header-anchor">#</a> deleteUser</h2> <h3 id="入参-7"><a href="#入参-7" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id: String
+}
+</code></pre> <h3 id="出参-7"><a href="#出参-7" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    psw
+    nickname
+    gitlab
+    enable
+    created
+    updated
+}
+</code></pre> <h3 id="用法-7"><a href="#用法-7" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>User.deleteUser(args).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="fetchuserbytoken"><a href="#fetchuserbytoken" aria-hidden="true" class="header-anchor">#</a> fetchUserByToken</h2> <h3 id="入参-8"><a href="#入参-8" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    token: String   // 非必传
+}
+</code></pre> <h3 id="出参-8"><a href="#出参-8" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    token
+    name
+    nickname
+    gitlab
+    enable
+    created
+    updated
+    roleCode
+    roleName
+    otherRoles {
+        roleCode
+        roleName
+        appId
+    }
+}
+</code></pre> <h3 id="用法-8"><a href="#用法-8" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>User.fetchUserByToken({token: ''}).then(res =&gt; {
+    console.log(res);
+});
+</code></pre></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/" class="prev router-link-active">
+          快速上手
+        </a></span> <span class="next"><a href="/usertag.html">
+          UserTag
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/13.edca0639.js" defer></script><script src="/assets/js/app.c544dd0a.js" defer></script>
+  </body>
+</html>

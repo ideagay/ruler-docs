@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>快速上手 | ruler docs</title>
+    <meta name="description" content="ruler 平台帮助文档">
+    
+    
+    <link rel="preload" href="/assets/css/styles.c544dd0a.css" as="style"><link rel="preload" href="/assets/js/app.c544dd0a.js" as="script"><link rel="preload" href="/assets/js/3.b328447d.js" as="script"><link rel="prefetch" href="/assets/js/5.211a2784.js"><link rel="prefetch" href="/assets/css/1.styles.5a8ea794.css"><link rel="prefetch" href="/assets/js/1.5a8ea794.js"><link rel="prefetch" href="/assets/css/2.styles.3b2bf0fa.css"><link rel="prefetch" href="/assets/js/2.3b2bf0fa.js"><link rel="prefetch" href="/assets/js/4.895e8e0c.js"><link rel="prefetch" href="/assets/js/6.51ba5ec7.js"><link rel="prefetch" href="/assets/js/7.36981f90.js"><link rel="prefetch" href="/assets/js/8.711d9d9b.js"><link rel="prefetch" href="/assets/js/9.d00e7089.js"><link rel="prefetch" href="/assets/js/10.66611ea4.js"><link rel="prefetch" href="/assets/js/11.83d91db3.js"><link rel="prefetch" href="/assets/js/12.cf502b43.js"><link rel="prefetch" href="/assets/js/13.edca0639.js"><link rel="prefetch" href="/assets/js/14.36b2b18d.js">
+    <link rel="stylesheet" href="/assets/css/1.styles.5a8ea794.css"><link rel="stylesheet" href="/assets/css/2.styles.3b2bf0fa.css"><link rel="stylesheet" href="/assets/css/styles.c544dd0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">ruler docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/changelog.html" class="sidebar-link">更新日志</a></li><li><a href="/" class="active sidebar-link">快速上手</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/#安装" class="sidebar-link">安装</a></li><li class="sidebar-sub-header"><a href="/#ruler-tool" class="sidebar-link">ruler-tool</a></li><li class="sidebar-sub-header"><a href="/#按需引入" class="sidebar-link">按需引入</a></li></ul></li><li><a href="/user.html" class="sidebar-link">User</a></li><li><a href="/usertag.html" class="sidebar-link">UserTag</a></li><li><a href="/app.html" class="sidebar-link">App</a></li><li><a href="/collection.html" class="sidebar-link">Collection</a></li><li><a href="/jenkins.html" class="sidebar-link">Jenkins</a></li><li><a href="/gitlab.html" class="sidebar-link">Gitlab</a></li><li><a href="/file.html" class="sidebar-link">File</a></li><li><a href="/dingding.html" class="sidebar-link">DingDing</a></li><li><a href="/data.html" class="sidebar-link">Data</a></li><li><a href="/role.html" class="sidebar-link">Role</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="快速上手"><a href="#快速上手" aria-hidden="true" class="header-anchor">#</a> 快速上手</h1> <p>本文将介绍如何在项目中使用ruler-tool</p> <h2 id="安装"><a href="#安装" aria-hidden="true" class="header-anchor">#</a> 安装</h2> <pre><code>snpm install @souche-f2e/ruler-tool  --save
+</code></pre> <h2 id="ruler-tool"><a href="#ruler-tool" aria-hidden="true" class="header-anchor">#</a> ruler-tool</h2> <p>ruler-tool是平台封装的api工具,目的是让你快速的使用平台提供的接口;目前封装了5大模块,包括用户管理,应用管理,权限管理,表管理,数据接入</p> <h3 id="首先在main-js中设定全局配置"><a href="#首先在main-js中设定全局配置" aria-hidden="true" class="header-anchor">#</a> 首先在main.js中设定全局配置</h3> <pre><code>import {Config} from '@souche-f2e/ruler-tool';
+
+let appKey = '8f9f7e401f88d0ae55b13f9593229d78';  // 写入自己应用的appkey,可在应用设置里查看
+
+let errorHandler = ({code, msg}) =&gt; {
+    console.error(code + ',' + msg);
+    // do something
+    if (code === 401) { // 401 为token失效的返回码
+        // do something
+    }
+};
+
+Config.setup({
+    token: xxx,
+    host: 'http://api.ruler.dasouche-inc.net/graphql', // 可不传,默认连线上环境
+    errorHandler: errorHandler,
+    appKey: appKey
+});
+</code></pre> <h3 id="user登录方法使用示例"><a href="#user登录方法使用示例" aria-hidden="true" class="header-anchor">#</a> user登录方法使用示例</h3> <pre><code>import {User, Config} from '@souche-f2e/ruler-tool';
+
+User.login(params).then(res =&gt; {
+    console.log(res);
+    // do something
+    Config.token = res.token; // 登录后重写token
+}).catch((err) =&gt; {
+    console.error(err);
+});
+</code></pre> <h2 id="按需引入"><a href="#按需引入" aria-hidden="true" class="header-anchor">#</a> 按需引入</h2> <p>借助babel-plugin-import实现按需引入,以达到减小项目体积的目的</p> <p>1.8.x版本及以上不需要使用此插件</p> <p>首先安装babel-plugin-import</p> <pre><code>snpm install babel-plugin-import --save-dev
+</code></pre> <p>然后,在.babelrc的plugins中添加配置,以下代码只展示babel-plugin-import部分配置,其他配置根据自己项目添加</p> <pre><code>{
+  &quot;plugins&quot;: [[
+    &quot;import&quot;,
+    [
+      {
+        &quot;libraryName&quot;: &quot;@souche-f2e/ruler-tool&quot;
+      }
+    ]
+  ]]
+}
+</code></pre></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/changelog.html" class="prev">
+          更新日志
+        </a></span> <span class="next"><a href="/user.html">
+          User
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/3.b328447d.js" defer></script><script src="/assets/js/app.c544dd0a.js" defer></script>
+  </body>
+</html>

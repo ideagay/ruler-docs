@@ -1,0 +1,24 @@
+{
+  "name": "ruler-docs",
+  "version": "1.0.0",
+  "description": "ruler docs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.souche-inc.com:middle-end/ruler-docs.git"
+  },
+  "keywords": [
+    "ruler",
+    "docs"
+  ],
+  "author": "hanyongbin@souche.com",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^0.14.4"
+  }
+}

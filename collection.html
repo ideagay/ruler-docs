@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Collection | ruler docs</title>
+    <meta name="description" content="ruler 平台帮助文档">
+    
+    
+    <link rel="preload" href="/ruler-docs/assets/css/styles.ba25d51a.css" as="style"><link rel="preload" href="/ruler-docs/assets/js/app.ba25d51a.js" as="script"><link rel="preload" href="/ruler-docs/assets/js/6.51ba5ec7.js" as="script"><link rel="prefetch" href="/ruler-docs/assets/js/5.211a2784.js"><link rel="prefetch" href="/ruler-docs/assets/css/1.styles.5a8ea794.css"><link rel="prefetch" href="/ruler-docs/assets/js/1.5a8ea794.js"><link rel="prefetch" href="/ruler-docs/assets/css/2.styles.3b2bf0fa.css"><link rel="prefetch" href="/ruler-docs/assets/js/2.3b2bf0fa.js"><link rel="prefetch" href="/ruler-docs/assets/js/3.b328447d.js"><link rel="prefetch" href="/ruler-docs/assets/js/4.895e8e0c.js"><link rel="prefetch" href="/ruler-docs/assets/js/7.36981f90.js"><link rel="prefetch" href="/ruler-docs/assets/js/8.711d9d9b.js"><link rel="prefetch" href="/ruler-docs/assets/js/9.d00e7089.js"><link rel="prefetch" href="/ruler-docs/assets/js/10.66611ea4.js"><link rel="prefetch" href="/ruler-docs/assets/js/11.83d91db3.js"><link rel="prefetch" href="/ruler-docs/assets/js/12.cf502b43.js"><link rel="prefetch" href="/ruler-docs/assets/js/13.edca0639.js"><link rel="prefetch" href="/ruler-docs/assets/js/14.36b2b18d.js">
+    <link rel="stylesheet" href="/ruler-docs/assets/css/1.styles.5a8ea794.css"><link rel="stylesheet" href="/ruler-docs/assets/css/2.styles.3b2bf0fa.css"><link rel="stylesheet" href="/ruler-docs/assets/css/styles.ba25d51a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ruler-docs/" class="home-link router-link-active"><!----> <span class="site-name">ruler docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/ruler-docs/changelog.html" class="sidebar-link">更新日志</a></li><li><a href="/ruler-docs/" class="sidebar-link">快速上手</a></li><li><a href="/ruler-docs/user.html" class="sidebar-link">User</a></li><li><a href="/ruler-docs/usertag.html" class="sidebar-link">UserTag</a></li><li><a href="/ruler-docs/app.html" class="sidebar-link">App</a></li><li><a href="/ruler-docs/collection.html" class="active sidebar-link">Collection</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ruler-docs/collection.html#createcollection" class="sidebar-link">createCollection</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/collection.html#fetchcollections" class="sidebar-link">fetchCollections</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/collection.html#collectionbyid" class="sidebar-link">collectionById</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/collection.html#addfield" class="sidebar-link">addField</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/collection.html#updatefield" class="sidebar-link">updateField</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/collection.html#deletefield" class="sidebar-link">deleteField</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/collection.html#deletecollection" class="sidebar-link">deleteCollection</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/collection.html#updatecollection" class="sidebar-link">updateCollection</a></li></ul></li><li><a href="/ruler-docs/jenkins.html" class="sidebar-link">Jenkins</a></li><li><a href="/ruler-docs/gitlab.html" class="sidebar-link">Gitlab</a></li><li><a href="/ruler-docs/file.html" class="sidebar-link">File</a></li><li><a href="/ruler-docs/dingding.html" class="sidebar-link">DingDing</a></li><li><a href="/ruler-docs/data.html" class="sidebar-link">Data</a></li><li><a href="/ruler-docs/role.html" class="sidebar-link">Role</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="collection"><a href="#collection" aria-hidden="true" class="header-anchor">#</a> Collection</h1> <pre><code>import {Collection} from '@souche-f2e/ruler-tool';
+</code></pre> <h2 id="createcollection"><a href="#createcollection" aria-hidden="true" class="header-anchor">#</a> createCollection</h2> <h3 id="入参"><a href="#入参" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    name: String
+    desc: String
+    appId: String
+}
+</code></pre> <h3 id="出参"><a href="#出参" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    desc
+    appName
+    created
+    updated
+    fields {
+      _id
+      name
+      type
+      created
+      updated
+      index
+      defaultValue
+      desc
+    }
+}
+</code></pre> <h3 id="用法"><a href="#用法" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>Collection.createCollection(args).then((res) =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="fetchcollections"><a href="#fetchcollections" aria-hidden="true" class="header-anchor">#</a> fetchCollections</h2> <h3 id="入参-2"><a href="#入参-2" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id: String
+}
+</code></pre> <h3 id="出参-2"><a href="#出参-2" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>[{
+    _id
+    name
+    desc
+    appName
+    created
+    updated
+    fields {
+      _id
+      name
+      defaultValue
+      index
+      created
+      updated
+    }
+}]
+</code></pre> <h3 id="用法-2"><a href="#用法-2" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>Collection.fetchCollections().then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="collectionbyid"><a href="#collectionbyid" aria-hidden="true" class="header-anchor">#</a> collectionById</h2> <h3 id="入参-3"><a href="#入参-3" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id
+}
+</code></pre> <h3 id="出参-3"><a href="#出参-3" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    desc
+    appName
+    created
+    updated
+    fields {
+      _id
+      name
+      defaultValue
+      index
+      created
+      updated
+    }
+}
+</code></pre> <h3 id="用法-3"><a href="#用法-3" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>Collection.collectionById(args).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="addfield"><a href="#addfield" aria-hidden="true" class="header-anchor">#</a> addField</h2> <h3 id="入参-4"><a href="#入参-4" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id
+    name
+    type
+    defaultValue
+    index
+    desc
+}
+</code></pre> <h3 id="出参-4"><a href="#出参-4" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+  _id
+  name
+  desc
+  appName
+  created
+  updated
+  fields {
+    _id
+    name
+    type
+    created
+    updated
+    index
+    defaultValue
+    desc
+  }
+}
+</code></pre> <h3 id="用法-4"><a href="#用法-4" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>Collection.addField(args).then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="updatefield"><a href="#updatefield" aria-hidden="true" class="header-anchor">#</a> updateField</h2> <h3 id="入参-5"><a href="#入参-5" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id
+    fieldId
+    name
+    type
+    defaultValue
+    index
+    desc
+}
+</code></pre> <h3 id="出参-5"><a href="#出参-5" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+  _id
+  name
+  desc
+  appName
+  created
+  updated
+  fields {
+    _id
+    name
+    type
+    created
+    updated
+    index
+    defaultValue
+    desc
+  }
+}
+</code></pre> <h3 id="用法-5"><a href="#用法-5" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>Collection.updateField(args).then(res =&gt; {
+    console.log(res);
+});  
+</code></pre> <h2 id="deletefield"><a href="#deletefield" aria-hidden="true" class="header-anchor">#</a> deleteField</h2> <h3 id="入参-6"><a href="#入参-6" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id
+    fieldId
+}
+</code></pre> <h3 id="出参-6"><a href="#出参-6" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+  _id
+  name
+  desc
+  appName
+  created
+  updated
+  fields {
+    _id
+    name
+    type
+    created
+    updated
+    index
+    defaultValue
+    desc
+  }
+}
+</code></pre> <h3 id="用法-6"><a href="#用法-6" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>Collection.deleteField(args).then(res =&gt; {
+    console.log(res);
+}); 
+</code></pre> <h2 id="deletecollection"><a href="#deletecollection" aria-hidden="true" class="header-anchor">#</a> deleteCollection</h2> <h3 id="入参-7"><a href="#入参-7" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id
+}
+</code></pre> <h3 id="出参-7"><a href="#出参-7" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+  _id
+  name
+  desc
+  appName
+  created
+  updated
+  fields {
+    _id
+    name
+    type
+    created
+    updated
+    index
+    defaultValue
+    desc
+  }
+}
+</code></pre> <h3 id="用法-7"><a href="#用法-7" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>Collection.deleteCollection(args).then(res =&gt; {
+    console.log(res);
+});      
+</code></pre> <h2 id="updatecollection"><a href="#updatecollection" aria-hidden="true" class="header-anchor">#</a> updateCollection</h2> <h3 id="入参-8"><a href="#入参-8" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id
+    name
+    desc
+}
+</code></pre> <h3 id="出参-8"><a href="#出参-8" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+  _id
+  name
+  desc
+  appName
+  created
+  updated
+  fields {
+    _id
+    name
+    type
+    created
+    updated
+    index
+    defaultValue
+    desc
+  }
+}
+</code></pre> <h3 id="用法-8"><a href="#用法-8" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>Collection.updateCollection(args).then(res =&gt; {
+    console.log(res);
+}); 
+</code></pre></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/ruler-docs/app.html" class="prev">
+          App
+        </a></span> <span class="next"><a href="/ruler-docs/jenkins.html">
+          Jenkins
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/ruler-docs/assets/js/6.51ba5ec7.js" defer></script><script src="/ruler-docs/assets/js/app.ba25d51a.js" defer></script>
+  </body>
+</html>

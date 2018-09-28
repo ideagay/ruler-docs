@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>App | ruler docs</title>
+    <meta name="description" content="ruler 平台帮助文档">
+    
+    
+    <link rel="preload" href="/ruler-docs/assets/css/styles.ba25d51a.css" as="style"><link rel="preload" href="/ruler-docs/assets/js/app.ba25d51a.js" as="script"><link rel="preload" href="/ruler-docs/assets/js/4.895e8e0c.js" as="script"><link rel="prefetch" href="/ruler-docs/assets/js/5.211a2784.js"><link rel="prefetch" href="/ruler-docs/assets/css/1.styles.5a8ea794.css"><link rel="prefetch" href="/ruler-docs/assets/js/1.5a8ea794.js"><link rel="prefetch" href="/ruler-docs/assets/css/2.styles.3b2bf0fa.css"><link rel="prefetch" href="/ruler-docs/assets/js/2.3b2bf0fa.js"><link rel="prefetch" href="/ruler-docs/assets/js/3.b328447d.js"><link rel="prefetch" href="/ruler-docs/assets/js/6.51ba5ec7.js"><link rel="prefetch" href="/ruler-docs/assets/js/7.36981f90.js"><link rel="prefetch" href="/ruler-docs/assets/js/8.711d9d9b.js"><link rel="prefetch" href="/ruler-docs/assets/js/9.d00e7089.js"><link rel="prefetch" href="/ruler-docs/assets/js/10.66611ea4.js"><link rel="prefetch" href="/ruler-docs/assets/js/11.83d91db3.js"><link rel="prefetch" href="/ruler-docs/assets/js/12.cf502b43.js"><link rel="prefetch" href="/ruler-docs/assets/js/13.edca0639.js"><link rel="prefetch" href="/ruler-docs/assets/js/14.36b2b18d.js">
+    <link rel="stylesheet" href="/ruler-docs/assets/css/1.styles.5a8ea794.css"><link rel="stylesheet" href="/ruler-docs/assets/css/2.styles.3b2bf0fa.css"><link rel="stylesheet" href="/ruler-docs/assets/css/styles.ba25d51a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ruler-docs/" class="home-link router-link-active"><!----> <span class="site-name">ruler docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/ruler-docs/changelog.html" class="sidebar-link">更新日志</a></li><li><a href="/ruler-docs/" class="sidebar-link">快速上手</a></li><li><a href="/ruler-docs/user.html" class="sidebar-link">User</a></li><li><a href="/ruler-docs/usertag.html" class="sidebar-link">UserTag</a></li><li><a href="/ruler-docs/app.html" class="active sidebar-link">App</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ruler-docs/app.html#newapp" class="sidebar-link">newApp</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/app.html#apps" class="sidebar-link">apps</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/app.html#appbyid" class="sidebar-link">appById</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/app.html#updateapp" class="sidebar-link">updateApp</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/app.html#deleteapp" class="sidebar-link">deleteApp</a></li></ul></li><li><a href="/ruler-docs/collection.html" class="sidebar-link">Collection</a></li><li><a href="/ruler-docs/jenkins.html" class="sidebar-link">Jenkins</a></li><li><a href="/ruler-docs/gitlab.html" class="sidebar-link">Gitlab</a></li><li><a href="/ruler-docs/file.html" class="sidebar-link">File</a></li><li><a href="/ruler-docs/dingding.html" class="sidebar-link">DingDing</a></li><li><a href="/ruler-docs/data.html" class="sidebar-link">Data</a></li><li><a href="/ruler-docs/role.html" class="sidebar-link">Role</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="app"><a href="#app" aria-hidden="true" class="header-anchor">#</a> App</h1> <pre><code>import {App} from '@souche-f2e/ruler-tool';
+</code></pre> <h2 id="newapp"><a href="#newapp" aria-hidden="true" class="header-anchor">#</a> newApp</h2> <h3 id="入参"><a href="#入参" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    name
+    desc
+}
+</code></pre> <h3 id="出参"><a href="#出参" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+  _id
+  name
+  appKey
+  desc
+  createrId
+  createrName
+  enable
+  created
+  updated
+} 
+</code></pre> <h3 id="用法"><a href="#用法" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>App.newApp(name, desc).then(res =&gt; {
+    console.log(res);
+});    
+</code></pre> <h2 id="apps"><a href="#apps" aria-hidden="true" class="header-anchor">#</a> apps</h2> <h3 id="入参-2"><a href="#入参-2" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>-
+</code></pre> <h3 id="出参-2"><a href="#出参-2" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    appKey
+    desc
+    createrId
+    createrName
+    enable
+    created
+    updated
+} 
+</code></pre> <h3 id="用法-2"><a href="#用法-2" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>App.apps().then(res =&gt; {
+    console.log(res);
+});
+</code></pre> <h2 id="appbyid"><a href="#appbyid" aria-hidden="true" class="header-anchor">#</a> appById</h2> <h3 id="入参-3"><a href="#入参-3" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id
+}
+</code></pre> <h3 id="出参-3"><a href="#出参-3" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    appKey
+    desc
+    createrId
+    createrName
+    enable
+    created
+    updated
+} 
+</code></pre> <h3 id="用法-3"><a href="#用法-3" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>App.appById({_id: this.$route.query.appId}).then(res =&gt; {
+    this.app = Object.assign({}, this.app, res);
+});
+</code></pre> <h2 id="updateapp"><a href="#updateapp" aria-hidden="true" class="header-anchor">#</a> updateApp</h2> <h3 id="入参-4"><a href="#入参-4" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id
+    name
+    appKey
+    desc
+    createrId
+    createrName
+    enable
+    created
+    updated
+}
+</code></pre> <h3 id="出参-4"><a href="#出参-4" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    appKey
+    desc
+    createrId
+    createrName
+    enable
+    created
+    updated
+} 
+</code></pre> <h3 id="用法-4"><a href="#用法-4" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>App.updateApp(args).then(res =&gt; {
+    this.app = res;
+});
+</code></pre> <h2 id="deleteapp"><a href="#deleteapp" aria-hidden="true" class="header-anchor">#</a> deleteApp</h2> <h3 id="入参-5"><a href="#入参-5" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    appKey
+    _id
+}
+</code></pre> <h3 id="出参-5"><a href="#出参-5" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    name
+    appKey
+    desc
+    createrId
+    createrName
+    enable
+    created
+    updated
+} 
+</code></pre> <h3 id="用法-5"><a href="#用法-5" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>App.deleteApp(appKey, _id).then(res =&gt; {
+    console.log(res);
+}); 
+</code></pre></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/ruler-docs/usertag.html" class="prev">
+          UserTag
+        </a></span> <span class="next"><a href="/ruler-docs/collection.html">
+          Collection
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/ruler-docs/assets/js/4.895e8e0c.js" defer></script><script src="/ruler-docs/assets/js/app.ba25d51a.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>File | ruler docs</title>
+    <meta name="description" content="ruler 平台帮助文档">
+    
+    
+    <link rel="preload" href="/ruler-docs/assets/css/styles.ba25d51a.css" as="style"><link rel="preload" href="/ruler-docs/assets/js/app.ba25d51a.js" as="script"><link rel="preload" href="/ruler-docs/assets/js/9.d00e7089.js" as="script"><link rel="prefetch" href="/ruler-docs/assets/js/5.211a2784.js"><link rel="prefetch" href="/ruler-docs/assets/css/1.styles.5a8ea794.css"><link rel="prefetch" href="/ruler-docs/assets/js/1.5a8ea794.js"><link rel="prefetch" href="/ruler-docs/assets/css/2.styles.3b2bf0fa.css"><link rel="prefetch" href="/ruler-docs/assets/js/2.3b2bf0fa.js"><link rel="prefetch" href="/ruler-docs/assets/js/3.b328447d.js"><link rel="prefetch" href="/ruler-docs/assets/js/4.895e8e0c.js"><link rel="prefetch" href="/ruler-docs/assets/js/6.51ba5ec7.js"><link rel="prefetch" href="/ruler-docs/assets/js/7.36981f90.js"><link rel="prefetch" href="/ruler-docs/assets/js/8.711d9d9b.js"><link rel="prefetch" href="/ruler-docs/assets/js/10.66611ea4.js"><link rel="prefetch" href="/ruler-docs/assets/js/11.83d91db3.js"><link rel="prefetch" href="/ruler-docs/assets/js/12.cf502b43.js"><link rel="prefetch" href="/ruler-docs/assets/js/13.edca0639.js"><link rel="prefetch" href="/ruler-docs/assets/js/14.36b2b18d.js">
+    <link rel="stylesheet" href="/ruler-docs/assets/css/1.styles.5a8ea794.css"><link rel="stylesheet" href="/ruler-docs/assets/css/2.styles.3b2bf0fa.css"><link rel="stylesheet" href="/ruler-docs/assets/css/styles.ba25d51a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ruler-docs/" class="home-link router-link-active"><!----> <span class="site-name">ruler docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/ruler-docs/changelog.html" class="sidebar-link">更新日志</a></li><li><a href="/ruler-docs/" class="sidebar-link">快速上手</a></li><li><a href="/ruler-docs/user.html" class="sidebar-link">User</a></li><li><a href="/ruler-docs/usertag.html" class="sidebar-link">UserTag</a></li><li><a href="/ruler-docs/app.html" class="sidebar-link">App</a></li><li><a href="/ruler-docs/collection.html" class="sidebar-link">Collection</a></li><li><a href="/ruler-docs/jenkins.html" class="sidebar-link">Jenkins</a></li><li><a href="/ruler-docs/gitlab.html" class="sidebar-link">Gitlab</a></li><li><a href="/ruler-docs/file.html" class="active sidebar-link">File</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ruler-docs/file.html#fetchall" class="sidebar-link">fetchAll</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/file.html#fetchbyid" class="sidebar-link">fetchById</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/file.html#create" class="sidebar-link">create</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/file.html#update" class="sidebar-link">update</a></li><li class="sidebar-sub-header"><a href="/ruler-docs/file.html#delete" class="sidebar-link">delete</a></li></ul></li><li><a href="/ruler-docs/dingding.html" class="sidebar-link">DingDing</a></li><li><a href="/ruler-docs/data.html" class="sidebar-link">Data</a></li><li><a href="/ruler-docs/role.html" class="sidebar-link">Role</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="file"><a href="#file" aria-hidden="true" class="header-anchor">#</a> File</h1> <pre><code>import { File } from '@souche-f2e/ruler-tool';
+</code></pre> <h2 id="fetchall"><a href="#fetchall" aria-hidden="true" class="header-anchor">#</a> fetchAll</h2> <h3 id="入参"><a href="#入参" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    *apps: &lt;&lt;String&gt;&gt; 关联的应用
+    *pageSize: &lt;&lt;Number&gt;&gt; 分页，一页获取多少条
+    *page: &lt;&lt;Number&gt;&gt; 分页，获取哪一页的数据
+    search: &lt;&lt;String&gt;&gt; 模糊查找符合文件名所的文件
+}
+</code></pre> <h3 id="出参"><a href="#出参" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    totalPage: &lt;&lt;Number&gt;&gt; 总页数
+    currentPage: &lt;&lt;Number&gt;&gt; 当前请求页码
+    totalNumber: &lt;&lt;Number&gt;&gt; 总记录条数
+    data: [{
+        _id
+        apps
+        path: &lt;&lt;String&gt;&gt; 文件的url
+        filename: &lt;&lt;String&gt;&gt; 文件的原始名称
+        mimetype: &lt;&lt;String&gt;&gt; 文件的 mimetype 类型
+    }]
+}
+</code></pre> <h3 id="用法"><a href="#用法" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>File
+.fetchAll({
+    apps: '5b19ec2a3aaa1900073cebde',
+    // search: 'file',
+    page: 1,
+    pageSize: 20
+})
+.then((d) =&gt; {
+    console.log(d);
+})
+</code></pre> <h2 id="fetchbyid"><a href="#fetchbyid" aria-hidden="true" class="header-anchor">#</a> fetchById</h2> <h3 id="入参-2"><a href="#入参-2" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id: &lt;&lt;String&gt;&gt; 切记 _id 和 path 两者至少有一个用于查找文件
+    path: &lt;&lt;String&gt;&gt;
+}
+</code></pre> <h3 id="出参-2"><a href="#出参-2" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    apps
+    path
+    filename
+    mimetype
+}
+</code></pre> <h3 id="用法-2"><a href="#用法-2" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>File
+.fetchById({
+    // path: 'test2.png',
+    _id: '5b4f2801bc480e4e73f41c89'
+})
+.then((d) =&gt; {
+    console.log(d);
+})
+</code></pre> <h2 id="create"><a href="#create" aria-hidden="true" class="header-anchor">#</a> create</h2> <h3 id="入参-3"><a href="#入参-3" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    *file: &lt;&lt;File&gt;&gt; multipart-form的文件部分
+    *apps: &lt;&lt;String&gt;&gt; 该应用的id
+}
+</code></pre> <h3 id="出参-3"><a href="#出参-3" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    apps
+    path
+    filename
+    mimetype
+}
+</code></pre> <h3 id="用法-3"><a href="#用法-3" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>// 如果是node调用
+
+File
+.create({
+    file: fs.createReadStream(__dirname + '/file-demo.js'),
+    apps: '5b19ec2a3aaa1900073cebde'
+})
+.then((d) =&gt; {
+    console.log(d);
+})
+
+// 如果是前端，xhr设置如下，第二句具体上传的文件可以获取
+
+&lt;input type=&quot;file&quot; id=&quot;upload&quot; on-change=&quot;changed&quot;&gt;
+
+var upload = document.getElementById('upload');
+upload.addEventListener('change', function (e) {
+    let theFile = upload.files[0]
+
+    File
+    .create({
+        file: theFile,
+        apps: '5b19ec2a3aaa1900073cebde'
+    })
+    .then((d) =&gt; {
+        console.log(d);
+    })
+})
+</code></pre> <h2 id="update"><a href="#update" aria-hidden="true" class="header-anchor">#</a> update</h2> <h3 id="入参-4"><a href="#入参-4" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    *_id: &lt;&lt;String&gt;&gt;
+    *filename: &lt;&lt;String&gt;&gt; 欲要改成的文件名
+}
+</code></pre> <h3 id="出参-4"><a href="#出参-4" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    apps
+    path
+    filename
+    mimetype
+}
+</code></pre> <h3 id="用法-4"><a href="#用法-4" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>File
+.update({
+    _id: '5b4f2801bc480e4e73f41c89',
+    filename: 'demo.js'
+})
+.then((d) =&gt; {
+    console.log(d);
+})
+</code></pre> <h2 id="delete"><a href="#delete" aria-hidden="true" class="header-anchor">#</a> delete</h2> <h3 id="入参-5"><a href="#入参-5" aria-hidden="true" class="header-anchor">#</a> 入参</h3> <pre><code>{
+    _id: &lt;&lt;String&gt;&gt; _id和path必有一项，用于找到这个文件
+    path: &lt;&lt;String&gt;&gt;
+}
+</code></pre> <h3 id="出参-5"><a href="#出参-5" aria-hidden="true" class="header-anchor">#</a> 出参</h3> <pre><code>{
+    _id
+    apps
+    path
+    filename
+    mimetype
+}
+</code></pre> <h3 id="用法-5"><a href="#用法-5" aria-hidden="true" class="header-anchor">#</a> 用法</h3> <pre><code>File
+.delete({
+    // path: 'test3.png',
+    _id: '5b4f2801bc480e4e73f41c89'
+})
+.then((d) =&gt; {
+    console.log(d);
+})
+</code></pre></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/ruler-docs/gitlab.html" class="prev">
+          Gitlab
+        </a></span> <span class="next"><a href="/ruler-docs/dingding.html">
+          DingDing
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/ruler-docs/assets/js/9.d00e7089.js" defer></script><script src="/ruler-docs/assets/js/app.ba25d51a.js" defer></script>
+  </body>
+</html>
